@@ -4,7 +4,7 @@ This repository contains a separate backend (Express + Postgres) and frontend (N
 
 ## Structure
 - backend/ - Express API (runs on port 3000)
-- frontend/ - Next.js UI (runs on port 3001)
+- frontend/ - Next.js UI (runs on port 8000)
 
 ## Quickstart (development)
 1. Start Postgres and create DB (or use Docker).
@@ -18,8 +18,8 @@ This repository contains a separate backend (Express + Postgres) and frontend (N
    - cd frontend
    - npm install
    - copy .env.local.example to .env.local if you need to change BACKEND URL
-   - start: npm run dev (opens on http://localhost:3001)
+   - start: npm run dev (opens on http://localhost:8000)
 
 ## Notes
-- Frontend calls backend at NEXT_PUBLIC_BACKEND_URL (default http://localhost:3000).
+- Frontend calls backend at NEXT_PUBLIC_BACKEND_URL (default http://localhost:8000).
 - For convenience I did not include Docker compose in this bundle; I can add it if you want a one-command setup.
