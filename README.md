@@ -1,6 +1,6 @@
 # Orderbook Monorepo
 
-IF Docker Available, Goto #ForkastAssignment directory docker-compuse --build command would start fullstack (DB, API, UI) 
+IF Docker Available, Goto #ForkastAssignment directory docker-compose --build command would start fullstack (DB, API, UI) 
 
 Otherwise - follow below instructions.
 
