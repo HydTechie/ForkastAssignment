@@ -1,5 +1,9 @@
 # Orderbook Monorepo
 
+IF Docker Available, Goto #ForkastAssignment directory docker-compuse --build command would start fullstack (DB, API, UI) 
+
+Otherwise - follow below instructions.
+
 This repository contains a separate backend (Express + Postgres) and frontend (Next.js) for the Orderbook project.
 
 ## Structure
