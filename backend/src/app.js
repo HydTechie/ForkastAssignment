@@ -1,9 +1,12 @@
+ 
 require('dotenv').config();
 const express = require('express');
+const cors = require('cors');
 const bodyParser = require('express').json;
 const ordersRouter = require('./orders/orders.router');
 
 const app = express();
+app.use(cors()); // Allow all origins (for development)
 app.use(bodyParser());
 
 app.get('/', (req, res) => res.json({ status: 'ok', service: 'orderbook-backend' }));

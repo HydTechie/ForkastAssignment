@@ -1,5 +1,6 @@
 import { useState } from 'react';
 
+
 export default function Home() {
   const BACKEND = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:3000';
   const [form, setForm] = useState({ userId: '', price: '', quantity: '' });
