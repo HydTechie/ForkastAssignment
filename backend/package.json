@@ -7,7 +7,8 @@
     "start": "node src/app.js",
     "start:dev": "nodemon --watch 'src/**/*.js' --exec \"node\" src/app.js",
     "migrate": "psql -h $DATABASE_HOST -p $DATABASE_PORT -U $DATABASE_USER -d $DATABASE_NAME -f migrations/initial.sql",
-    "test": "jest"
+    "test": "jest",
+    "debug": "nodemon --inspect=0.0.0.0:9229 src/app.js"
   },
   "dependencies": {
     "dotenv": "^16.0.0",

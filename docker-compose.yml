@@ -1,0 +1,46 @@
+
+
+services:
+  db:
+    image: postgres:15
+    container_name: orderbook_postgres
+    restart: always
+    environment:
+      POSTGRES_USER: orderbook_user
+      POSTGRES_PASSWORD: orderbook_pass
+      POSTGRES_DB: orderbook_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+      - ./backend/migrations/initial.sql:/docker-entrypoint-initdb.d/initial.sql
+   # Add health check to ensure DB is ready
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U orderbook_user -d orderbook_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build: ./backend
+    container_name: orderbook_backend
+    restart: always
+    env_file:
+      - ./backend/.env
+    ports:
+      - "3000:3000"   # App
+      - "9229:9229"   # Debug
+    depends_on:
+      - db
+    environment:
+    - NODE_ENV=development
+   
+    # Run migration FIRST, then start the app
+    command: >
+      sh -c "
+        
+        node --inspect=0.0.0.0:9229 src/app.js
+      "
+
+volumes:
+  db_data:

@@ -23,7 +23,7 @@ router.post('/orders/sell', [
   body('price').isFloat({ gt: 0 }),
   body('quantity').isFloat({ gt: 0 })
 ], async (req, res, next) => {
-  try {
+  try { 
     const errs = validationResult(req);
     if (!errs.isEmpty()) return res.status(400).json({ errors: errs.array() });
     const result = await svc.placeOrder('sell', req.body);
@@ -31,6 +31,7 @@ router.post('/orders/sell', [
   } catch (err) { next(err); }
 });
 
+// order book get
 router.get('/orderbook', async (req, res, next) => {
   try {
     const ob = await svc.getOrderbook();
