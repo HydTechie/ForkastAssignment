@@ -51,7 +51,7 @@ services:
        - NODE_ENV=development
      
     working_dir: /app
-    command: npm run start
+    command: npx next dev -H 0.0.0.0 -p 8000
 
     
 volumes:

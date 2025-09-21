@@ -8,19 +8,25 @@
     "start:dev": "nodemon --watch 'src/**/*.js' --exec \"node\" src/app.js",
     "migrate": "psql -h $DATABASE_HOST -p $DATABASE_PORT -U $DATABASE_USER -d $DATABASE_NAME -f migrations/initial.sql",
     "test": "jest",
-    "debug": "nodemon --inspect=0.0.0.0:9229 src/app.js"
+    "debug": "nodemon --inspect=0.0.0.0:9229 src/app.js",
+
+    "dev": "next dev -p 8000",
+    "build": "next build"
+  
+  
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^16.0.0",
     "express": "^4.18.2",
     "express-validator": "^7.0.1",
     "pg": "^8.11.0",
     "uuid": "^9.0.0",
-     "cors": "^2.8.5"
+    "winston": "^3.14.2"
   },
   "devDependencies": {
     "jest": "^29.6.1",
     "nodemon": "^3.1.10",
-    "supertest": "latest"
+    "supertest": "^6.3.4"
   }
 }

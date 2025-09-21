@@ -1,27 +1,21 @@
- 
-require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
-const bodyParser = require('express').json;
-const ordersRouter = require('./orders/orders.router');
+const ordersRoutes = require('./routes/orders.router');
+const errorHandler = require('./middlewares/error.middleware');
+const logger = require('./utils/logger');
 
 const app = express();
-app.use(cors()); // Allow all origins (for development)
-app.use(bodyParser());
+app.use(cors());
+app.use(express.json());
 
-app.get('/', (req, res) => res.json({ status: 'ok', service: 'orderbook-backend' }));
+// API routes
+app.use('/api/orders', ordersRoutes);
 
-app.use('/', ordersRouter);
+// Error handling middleware (last)
+app.use(errorHandler);
 
-// error handler
-app.use((err, req, res, next) => {
-  console.error(err);
-  res.status(err.status || 500).json({ error: err.message || 'Internal Server Error' });
+app.listen(3000, () => {
+  logger.info('Server running on port 3000');
 });
-
-const port = process.env.PORT || 3000;
-if (require.main === module) {
-  app.listen(port, () => console.log(`Orderbook API listening on http://localhost:${port}`));
-}
 
 module.exports = app;

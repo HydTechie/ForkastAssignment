@@ -23,7 +23,7 @@ npm run migrate
 npm run start
 ```
 
-API endpoints (default base: http://localhost:3000)
+API endpoints (default base: http://localhost:3000/api)
 - POST /orders/buy
 - POST /orders/sell
 - GET /orderbook
