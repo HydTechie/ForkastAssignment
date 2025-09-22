@@ -9,7 +9,7 @@ export default function Trades() {
   if (!data) return <div>Loading...</div>;
 
   // fallback: make sure data is always an array
-  const trades = Array.isArray(data) ? data : [];
+  const trades = Array.isArray(data?.data) ? data.data : [];
 
   return (
     <div style={{ maxWidth: 900, margin: 32 }}>

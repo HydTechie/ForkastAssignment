@@ -9,8 +9,8 @@ export default function Orderbook() {
   if (!data) return <div>Loading...</div>;
 
   // fallback to [] if buys or sells are missing/null
-  const buys = data?.buys ?? [];
-  const sells = data?.sells ?? [];
+  const buys = data?.data?.buys ?? [];
+  const sells = data?.data?.sells ?? [];
 
   return (
     <div style={{ maxWidth: 900, margin: 32 }}>
